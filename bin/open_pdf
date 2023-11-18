@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+cd "$HOME" || notify-send "Failed to cd"
+result=$(fd -e pdf . | menu)
+if [[ "$result" != "" ]]; then
+	zathura "$result"
+fi

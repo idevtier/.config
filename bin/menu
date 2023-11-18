@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+bemenu \
+	--ignorecase \
+	--prompt 󱞩 \
+	--no-spacing \
+	--wrap \
+	--fixed-height \
+	--width-factor 0.6 \
+	--border 2 \
+	--bdr \#22252f \
+	--list 10 \
+	--tf \#57ab5a \
+	--nb \#383c4a \
+	--hb \#383c4a \
+	--fbb \#383c4a \
+	--sb \#383c4a \
+	--scb \#383c4a \
+	--tb \#383c4a \
+	--fb \#383c4a \
+	--ab \#383c4a \
+	--hf \#539bf5 \
+	--fn "Iosevka NFM 14"

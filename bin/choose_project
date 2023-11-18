@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+base_dir="$HOME/code"
+cd "$base_dir"
+project=$(fd --regex '^(.git|.bare)$' --type d --hidden | xargs dirname | fzf --reverse --scheme=path --query "$1")
+echo "$base_dir/$project"

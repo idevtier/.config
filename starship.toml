@@ -1,0 +1,41 @@
+format = '''
+[┌](black)$character$nix_shell$python$git_branch$git_status$rust$jobs $fill $directory$fill $time
+[└](black) '''
+
+[character]
+disabled = false
+format = '$symbol'
+success_symbol = '[  ](bold green)'
+error_symbol = '[  ](bold red)'
+vimcmd_symbol = '[  ](bold blue)'
+vimcmd_visual_symbol = '[  ](bold purple)'
+
+[time]
+disabled = false
+
+[nix_shell]
+disabled = false
+format = ' [$symbol]($style)'
+style = 'cyan'
+symbol = ' '
+
+[git_branch]
+disabled = false
+format = ' [$symbol$branch(:$remote_branch)]($style)'
+
+[jobs]
+disabled = false
+format = ' [$symbol$number]($style)'
+
+[python]
+disabled = false
+symbol = ' '
+format = ' [${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style)'
+
+[package]
+disabled = true
+
+[fill]
+disabled = false
+symbol = '─'
+style = 'black'

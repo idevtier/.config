@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+tasks=("suspend" "hibernate" "shutdown")
+task=$(for task in "${tasks[@]}"; do echo "$task"; done | menu)
+case "$task" in
+	"suspend")
+		echo suspending
+		lock & systemctl suspend
+		;;
+	"hibernate")
+		echo hibernating
+		lock & systemctl hibernate
+		;;
+	"shutdown")
+		echo shutting down
+		shutdown now
+		;;
+	*)
+		echo unknown
+		;;
+esac

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+base_path="/etc/profiles/per-user/idevtier/share/applications/"
+cd "$base_path"
+app=$(fd -e '.desktop' | sed -r 's/.desktop//' | menu)
+gio launch "$base_path$app.desktop"

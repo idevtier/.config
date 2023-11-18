@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# Notification history written here
+killall tiramisu
+
+file="$HOME/.config/waybar/.notifs"
+rm -f "$file"
+
+# How long each line stays on screen
+duration=5
+
+##############################################################################
+
+is_notif_complete() {
+	case "$notif" in
+		*\ \}) return 0 ;;
+		*) return 1 ;;
+	esac
+}
+
+touch "$file"
+tiramisu -s -o '{"source": "#source", "summary": "#summary", "icon": "#icon"}' |
+	while read -r notif; do
+		app=$(echo "$notif" | jq '.source' | xargs)
+
+		case "$app" in
+			"Telegram Desktop") 
+				app=" "
+				mpv "$HOME/.config/notification_sounds/telegram_default.mp3" >/dev/null 2>&1 &
+				;;
+			"Slack")
+				app=" "
+				mpv "$HOME/.config/notification_sounds/slack_default.mp3" >/dev/null 2>&1 &
+				;;
+			"Brave")
+				app=" "
+				mpv "$HOME/.config/notification_sounds/mixkit-interface-hint-notification-911.wav" >/dev/null 2>&1 &
+				;;
+			"Hyprshot")
+				app=" "
+				;;
+			"notify-send")
+				app=" "
+				mpv "$HOME/.config/notification_sounds/mixkit-interface-hint-notification-911.wav" >/dev/null 2>&1 &
+				;;
+			"blueman")
+				app=" "
+				;;
+			*)
+				app="$app:"
+				mpv "$HOME/.config/notification_sounds/mixkit-interface-hint-notification-911.wav" >/dev/null 2>&1 &
+				;;
+		esac
+
+		summary=$(echo "$notif" | jq '.summary' | xargs)
+		body="$app $summary"
+
+		eww update notification_reveal=true
+		echo "$body"
+		sleep "$duration"
+		eww update notification_reveal=false
+	done

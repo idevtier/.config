@@ -26,11 +26,11 @@ tiramisu -s -o '{"source": "#source", "summary": "#summary", "icon": "#icon"}' |
 		case "$app" in
 			"Telegram Desktop") 
 				app=" "
-				mpv "$HOME/.config/notification_sounds/telegram_default.mp3" >/dev/null 2>&1 &
+				# mpv "$HOME/.config/notification_sounds/telegram_default.mp3" >/dev/null 2>&1 &
 				;;
 			"Slack")
 				app=" "
-				mpv "$HOME/.config/notification_sounds/slack_default.mp3" >/dev/null 2>&1 &
+				# mpv "$HOME/.config/notification_sounds/slack_default.mp3" >/dev/null 2>&1 &
 				;;
 			"Brave")
 				app=" "
@@ -45,6 +45,9 @@ tiramisu -s -o '{"source": "#source", "summary": "#summary", "icon": "#icon"}' |
 				;;
 			"blueman")
 				app=" "
+				;;
+			"Spotify")
+				app=" "
 				;;
 			*)
 				app="$app:"

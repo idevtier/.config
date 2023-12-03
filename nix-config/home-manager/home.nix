@@ -77,6 +77,7 @@
     bottom
     kitty
     jq
+    gojq
     fd
     bat
     fzf
@@ -139,6 +140,9 @@
     slides
     vivaldi
     libreoffice
+    vifm
+    vieb
+    spotify
   ];
 
   fonts.fontconfig.enable = true;

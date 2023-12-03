@@ -1,0 +1,15 @@
+# Add `path = ~/.config/git/config` to ~/.gitconfig file
+[user]
+	email = idevtier@gmail.com
+
+[init]
+	defaultBranch = main
+
+[alias]
+	w = worktree
+	s = status
+	c = commit
+	a = add
+
+[includeIf "hasconfig:remote.*.url:git@gitlab.pixelplex.by*/**"]
+	path = ~/.config/git/gitlab

@@ -1,0 +1,10 @@
+[haas_server]
+address = "127.0.0.1"
+port = 8090
+email = "garrypotterr@gmail.com"
+password = "myStrongPassword123"
+
+[backtest_info]
+total_period = 4
+rolling_period = 1
+optimizing_period = 2

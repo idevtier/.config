@@ -4,6 +4,9 @@ wallpaper=$(cd "$base_path" && fd --type file | menu)
 
 if [[ -n "$wallpaper" ]]; then
 	config="[eDP-1]
+path = \"$base_path/$wallpaper\"
+
+[HDMI-A-1]
 path = \"$base_path/$wallpaper\""
 	echo "$config" > "$HOME/.config/wpaperd/wallpaper.toml"
 	killall wpaperd

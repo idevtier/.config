@@ -1,0 +1,6 @@
+[user]
+	email = a.semenov@pixelplex.io
+	signingkey = 5C0515AB91028B10
+
+[commit]
+	gpgsign = true

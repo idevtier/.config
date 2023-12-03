@@ -56,7 +56,9 @@
   };
 
 # Set your time zone.
-  time.timeZone = "Europe/Moscow";
+  # time.timeZone = "Europe/Moscow";
+  time.timeZone = "Etc/GMT-1";
+
 
 # Select internationalisation properties.
   i18n = {
@@ -125,7 +127,15 @@
 
   powerManagement.enable = true;
   services.thermald.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 80;
+    };
+  };
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -190,6 +200,7 @@
     PATH = [
       "$HOME/.config/bin"
       "$HOME/.cargo/bin"
+      "$HOME/.bifrost/bin"
     ];
     HYPRSHOT_DIR = "$HOME/images/screenshots";
     NIXOS_OZONE_WL = "1";
